@@ -1,0 +1,9 @@
+{% if deck %}
+<ul>
+    {% for card in deck.card_set.all %}
+        <li>{{ card.front_text }} = {{ card.back_text }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+ERROR
+{% endif %}

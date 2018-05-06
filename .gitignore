@@ -1,5 +1,9 @@
 flashystudy/
 venv/
 .idea/
+
 db.sqlite3
 manage.py
+
+flashcard/__pycache__/
+flashcard/migrations/
