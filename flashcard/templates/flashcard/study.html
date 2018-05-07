@@ -1,7 +1,10 @@
 {% if deck %}
 <ul>
     {% for card in deck.card_set.all %}
-        <li>{{ card.front_text }} = {{ card.back_text }}</li>
+        <li>
+            <div class="front" style="background: greenyellow">{{ card.front_text }}</div>
+            <div class="back" style="background: darkblue; color: white">{{ card.back_text }}</div>
+        </li>
     {% endfor %}
 </ul>
 {% else %}

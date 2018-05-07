@@ -1,0 +1,20 @@
+{% if deck_list %}
+<ul>
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form action="{% url 'flashcard:newdeck' %}">
+        <input type="text" placeholder="Deck name" />
+        <input type="submit" value="New deck" />
+    </form>
+    {% for deck in deck_list %}
+        <li><a href="{% url 'flashcard:study' deck.id %}">{{ deck.deck_name }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+    <p>You have no flashcard sets!</p>
+{% endif %}

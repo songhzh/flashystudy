@@ -1,9 +1,2 @@
-{% if deck_list %}
-<ul>
-    {% for deck in deck_list %}
-        <li><a href="{% url 'flashcard:study' deck.id %}">{{ deck.deck_name }}</a></li>
-    {% endfor %}
-</ul>
-{% else %}
-    <p>You have no flashcard sets!</p>
-{% endif %}
+<head>Flashy Study!</head><br/>
+<a href="{% url 'flashcard:select' %}">Select</a><br/>
