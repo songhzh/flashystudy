@@ -8,5 +8,5 @@ urlpatterns = [
     path('select/', views.SelectView.as_view(), name='select'),
     path('create/<int:pk>/', views.CreateView.as_view(), name='create'),
     path('study/<int:pk>/', views.StudyView.as_view(), name='study'),
-    path('newdeck/', views.newDeck, name='newdeck'),
+    path('newdeck/', views.new_deck, name='newdeck'),
 ]
