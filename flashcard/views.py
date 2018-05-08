@@ -32,15 +32,11 @@ def new_deck(request):
                 return redirect(reverse('flashcard:study', args=(new_deck.pk,)))
         else:
             messages.error(request, 'You must enter a deck name.')
-        return redirect(reverse('flashcard:select'))
-    else:
-        form = DeckForm()
-
-    return render(request, 'flashcard/select.html', {'form': form})
+    return redirect(reverse('flashcard:select'))
 
 def del_deck(request):
     if request.method == 'POST':
         pk = int(request.POST.get('deck_pk'))
         deck = Deck.objects.get(pk=pk)
         deck.delete()
-        return redirect(reverse('flashcard:select'))
+    return redirect(reverse('flashcard:select'))
