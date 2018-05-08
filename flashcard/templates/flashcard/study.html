@@ -1,12 +1,13 @@
 {% if deck %}
-<ul>
-    {% for card in deck.card_set.all %}
-        <li>
-            <div class="front" style="background: greenyellow">{{ card.front_text }}</div>
-            <div class="back" style="background: darkblue; color: white">{{ card.back_text }}</div>
-        </li>
-    {% endfor %}
-</ul>
+    <header>{{ deck.deck_name }}</header>
+    <ul>
+        {% for card in deck.card_set.all %}
+            <li>
+                <div class="front" style="background: greenyellow">{{ card.front_text }}</div>
+                <div class="back" style="background: darkblue; color: white">{{ card.back_text }}</div>
+            </li>
+        {% endfor %}
+    </ul>
 {% else %}
 ERROR
 {% endif %}

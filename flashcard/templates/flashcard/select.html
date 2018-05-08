@@ -9,12 +9,18 @@
     {% endif %}
     <form action="{% url 'flashcard:newdeck' %}" method="post">
         {% csrf_token %}
-        <label for="deck_name">New deck</label>
         <input id="deck_name" type="text" name="deck_name" />
-        <input type="submit" value="New Deck" />
+        <input type="submit" value="New deck" />
     </form>
     {% for deck in deck_list %}
-        <li><a href="{% url 'flashcard:study' deck.id %}">{{ deck.deck_name }}</a></li>
+        <li>
+            <a href="{% url 'flashcard:study' deck.id %}">{{ deck.deck_name }}</a>
+            <form action="{% url 'flashcard:deldeck' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="deck_pk" value="{{ deck.pk }}" />
+                <input type="submit" value="Delete deck" />
+            </form>
+        </li>
     {% endfor %}
 </ul>
 {% else %}
